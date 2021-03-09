@@ -101,7 +101,7 @@ introButton.onPress = function() {
   this.stroke = (theRnbw[7]);
   this.textSize = txt;
   this.text = "boo";
-  soundEffects[0].play()
+  soundEffects[0].play();
 }
 
 secondButton.onHover = function(){
@@ -120,7 +120,7 @@ secondButton.onPress = function() {
   this.stroke = (theRnbw[6]);
   this.textSize = txt;
   this.text = "boo";
-  soundEffects[1].play()
+  soundEffects[1].play();
  }
 }
 
@@ -237,7 +237,7 @@ function rainbowCirclesOnTheMove(){
   translate(windowWidth/2, windowHeight/2);
   rotate(frameCount * p * -.01);
   fill(theRnbw[0]);
-  ellipse(0, 0, windowHeight - yInc, 10);
+  ellipse(0, 0, windowHeight - yInc, 20);
   pop();
 
   fill(theRnbw[2]);
@@ -246,7 +246,7 @@ function rainbowCirclesOnTheMove(){
   translate(windowWidth/2, windowHeight/2);
   rotate(frameCount * p * -2);
   fill(theRnbw[7]);
-  ellipse(0, 0, windowHeight - (yInc * 2), 10);
+  ellipse(0, 0, windowHeight - (yInc * 2), 30);
   pop();
 
 

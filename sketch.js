@@ -124,8 +124,16 @@ secondButton.onPress = function() {
 // Draw code goes here
 function draw() {
   background(theRnbw[rc]);
-  updateTimer();
-  updateTimerTwo();
+  
+  if(waitForClick) {
+  	fill(255);
+  	text("press if you dare", width/2, 200);
+ }
+ else {
+      updateTimer();
+      updateTimerTwo();
+ }
+
   introButton.draw(); 
   secondButton.draw(); 
 }

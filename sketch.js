@@ -126,8 +126,8 @@ function draw() {
   background(theRnbw[rc]);
   
   if(waitForClick) {
-  	fill(255);
-  	text("press if you dare", width/2, 200);
+    fill(theRnbw[7]);
+    ellipse(width/2, height/2, 800, 800);
  }
  else {
       updateTimer();

@@ -29,7 +29,8 @@ var yStrt = 20;
 var yInc = 250;
 
 // color array
-var theRnbw = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3', '#F144FD'];
+var theRnbw = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', 
+'#0000FF', '#4B0082', '#9400D3', '#F144FD'];
 
 //random color variable
 var randCol;
@@ -128,8 +129,7 @@ function draw() {
   background(theRnbw[rc]);
   
   if(waitForClick) {
-   fill(theRnbw[7]);
-   ellipse(width/2, height/2, 800, 800);
+    rainbowCircles();
  }
    else {
     updateTimer();
@@ -176,9 +176,11 @@ else {
 function drawBlueBerry() {
 
 	mv = random(-2, 2);
-    image(clickImg, posX + mv, 100 - mv);
-    image(clickImg, posX - mv, 350 + mv);
-    image(clickImg, posX + mv, 600 - mv);
+    image(clickImg, posX + mv, ((windowHeight/2) - (windowHeight/2) - mv));
+    image(clickImg, posX - mv, ((windowHeight/2) - (windowHeight/4) + mv));
+    image(clickImg, posX + mv, (windowHeight/2) - mv);
+    image(clickImg, posX - mv, ((windowHeight/2) + (windowHeight/2) + mv));
+    image(clickImg, posX + mv, ((windowHeight/2) + (windowHeight/4) - mv));
     posX += 4  
 }
   
@@ -186,6 +188,24 @@ function mousePressed() {
 	waitForClick = false;
 	simpleTimerTwo.start();
 	simpleTimer.start();	
+}
+
+function rainbowCircles() {
+
+   fill(theRnbw[7]);
+   ellipse(width/2, height/2, windowHeight);
+   fill(theRnbw[6]);
+   ellipse(width/2, height/2, windowHeight - yInc);
+   fill(theRnbw[5]);
+   ellipse(width/2, height/2, windowHeight - (yInc * 2));
+   fill(theRnbw[4]);
+   ellipse(width/2, height/2, windowHeight - (yInc * 3));
+   fill(theRnbw[3]);
+   ellipse(width/2, height/2, windowHeight - (yInc * 4));
+   fill(theRnbw[2]);
+   ellipse(width/2, height/2, windowHeight - (yInc * 5));
+   fill(theRnbw[1]);
+   ellipse(width/2, height/2, windowHeight - (yInc * 6));
 }
 
 

@@ -25,6 +25,8 @@ var bSoundTriggered = false;
 
 //text variable
 var txt = 60;
+var yStrt = 20;
+var yInc = 250;
 
 // color array
 var theRnbw = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3', '#F144FD'];
@@ -126,14 +128,13 @@ function draw() {
   background(theRnbw[rc]);
   
   if(waitForClick) {
-    fill(theRnbw[7]);
-    ellipse(width/2, height/2, 800, 800);
+   fill(theRnbw[7]);
+   ellipse(width/2, height/2, 800, 800);
  }
- else {
-      updateTimer();
-      updateTimerTwo();
+   else {
+    updateTimer();
+    updateTimerTwo();
  }
-
   introButton.draw(); 
   secondButton.draw(); 
 }
@@ -145,11 +146,11 @@ function updateTimer() {
     stroke(5);
     fill(255);
     textSize(300);
-    text('gotcha', width/2, 20);
-    text('gotcha', width/2, 270);
-    text('gotcha', width/2, 520); 
-    text('gotcha', width/2, 770);
-    text('gotcha', width/2, 1020); 
+    text('gotcha', width/2, yStrt);
+    text('gotcha', width/2, yStrt + yInc);
+    text('gotcha', width/2, yStrt + (yInc * 2)); 
+    text('gotcha', width/2, yStrt + (yInc * 3));
+    text('gotcha', width/2, yStrt + (yInc * 4)); 
 }
 else {
 	fill(255);

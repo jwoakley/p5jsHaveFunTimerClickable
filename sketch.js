@@ -91,14 +91,14 @@ introButton.onHover = function(){
 }
 
 introButton.onOutside = function(){
-  this.color = (theRnbw[2]);
+  this.color = (theRnbw[7]);
   this.textSize = txt;
   this.text = "press if you dare";
-  this.textColor = (theRnbw[3]);
+  this.textColor = (theRnbw[6]);
 }
 
 introButton.onPress = function() {
-  this.stroke = (theRnbw[4]);
+  this.stroke = (theRnbw[7]);
   this.textSize = txt;
   this.text = "boo";
   soundEffects[0].play()
@@ -110,14 +110,14 @@ secondButton.onHover = function(){
 }
 
 secondButton.onOutside = function(){
-  this.color = (theRnbw[3]);
+  this.color = (theRnbw[6]);
   this.textSize = txt;
   this.text = "press if you dare";
-  this.textColor = (theRnbw[2]);
+  this.textColor = (theRnbw[7]);
 }
 
 secondButton.onPress = function() {
-  this.stroke = (theRnbw[4]);
+  this.stroke = (theRnbw[6]);
   this.textSize = txt;
   this.text = "boo";
   soundEffects[1].play()
@@ -132,8 +132,8 @@ function draw() {
     rainbowCircles();
  }
    else {
-    updateTimer();
     updateTimerTwo();
+    updateTimer();
  }
   introButton.draw(); 
   secondButton.draw(); 
@@ -157,20 +157,21 @@ function updateTimer() {
 else {
 	fill(255);
     textSize(300);
-    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, yInc + 150);
+    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, yInc);
  }
 }
 
 // Looks for elapsed timefor timer two
 function updateTimerTwo() {
   if( simpleTimerTwo.expired() ) {
+    rainbowCircles();
     drawBlueBerry();
 }
 else {
 	fill(255);
 	// textAlign(CENTER);
     textSize(300);
-    text( Math.round(simpleTimerTwo.getRemainingTime()/1000), width/2, height - yInc);
+    text( Math.round(simpleTimerTwo.getRemainingTime()/1000), width/2, height-20);
  }
 }
 
@@ -194,20 +195,22 @@ function mousePressed() {
 }
 
 function rainbowCircles() {
-  fill(theRnbw[7]);
+
+  var posY = 0;
+
+  fill(theRnbw[0]);
   ellipse(width/2, height/2, windowHeight);
-  fill(theRnbw[6]);
-  ellipse(width/2, height/2, windowHeight - yInc);
-  fill(theRnbw[5]);
-  ellipse(width/2, height/2, windowHeight - (yInc * 2));
-  fill(theRnbw[4]);
-  ellipse(width/2, height/2, windowHeight - (yInc * 3));
-  fill(theRnbw[3]);
-  ellipse(width/2, height/2, windowHeight - (yInc * 4));
-  fill(theRnbw[2]);
-  ellipse(width/2, height/2, windowHeight - (yInc * 5));
   fill(theRnbw[1]);
-  ellipse(width/2, height/2, windowHeight - (yInc * 6));
+  ellipse(width/2, height/2, windowHeight - yInc);
+  fill(theRnbw[2]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 2));
+  fill(theRnbw[3]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 3));
+  fill(theRnbw[4]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 4));
+  fill(theRnbw[5]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 5));
+
 
 }
 

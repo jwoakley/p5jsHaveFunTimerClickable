@@ -142,7 +142,7 @@ function draw() {
 // Looks for elapsed timefor timer one
 function updateTimer() {
   if( simpleTimer.expired() ) {
-    textAlign(CENTER);
+    // textAlign(CENTER);
     stroke(5);
     fill(255);
     textSize(300);
@@ -151,12 +151,13 @@ function updateTimer() {
     text('gotcha', width/2, yStrt + (yInc * 2)); 
     text('gotcha', width/2, yStrt + (yInc * 3));
     text('gotcha', width/2, yStrt + (yInc * 4)); 
+    text('gotcha', width/2, yStrt + (yInc * 5));
+    text('gotcha', width/2, yStrt + (yInc * 6));
 }
 else {
 	fill(255);
-	textAlign(CENTER);
     textSize(300);
-    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, 200);
+    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, yInc + 150);
  }
 }
 
@@ -167,21 +168,23 @@ function updateTimerTwo() {
 }
 else {
 	fill(255);
-	textAlign(CENTER);
+	// textAlign(CENTER);
     textSize(300);
-    text( Math.round(simpleTimerTwo.getRemainingTime()/1000), width/2, 700);
+    text( Math.round(simpleTimerTwo.getRemainingTime()/1000), width/2, height - yInc);
  }
 }
+
 //dogs dancing across screen
 function drawBlueBerry() {
+  mv = random(-2, 2);
 
-	mv = random(-2, 2);
-    image(clickImg, posX + mv, ((windowHeight/2) - (windowHeight/2) - mv));
-    image(clickImg, posX - mv, ((windowHeight/2) - (windowHeight/4) + mv));
-    image(clickImg, posX + mv, (windowHeight/2) - mv);
-    image(clickImg, posX - mv, ((windowHeight/2) + (windowHeight/2) + mv));
-    image(clickImg, posX + mv, ((windowHeight/2) + (windowHeight/4) - mv));
-    posX += 4  
+  image(clickImg, posX + mv, ((windowHeight/2) - (windowHeight/2) - mv));
+  image(clickImg, posX - mv, ((windowHeight/2) - (windowHeight/4) + mv));
+  image(clickImg, posX + mv, (windowHeight/2) - mv);
+  image(clickImg, posX - mv, ((windowHeight/2) + (windowHeight/2) + mv));
+  image(clickImg, posX + mv, ((windowHeight/2) + (windowHeight/4) - mv));
+
+  posX += 4  
 }
   
 function mousePressed() {
@@ -191,21 +194,21 @@ function mousePressed() {
 }
 
 function rainbowCircles() {
+  fill(theRnbw[7]);
+  ellipse(width/2, height/2, windowHeight);
+  fill(theRnbw[6]);
+  ellipse(width/2, height/2, windowHeight - yInc);
+  fill(theRnbw[5]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 2));
+  fill(theRnbw[4]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 3));
+  fill(theRnbw[3]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 4));
+  fill(theRnbw[2]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 5));
+  fill(theRnbw[1]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 6));
 
-   fill(theRnbw[7]);
-   ellipse(width/2, height/2, windowHeight);
-   fill(theRnbw[6]);
-   ellipse(width/2, height/2, windowHeight - yInc);
-   fill(theRnbw[5]);
-   ellipse(width/2, height/2, windowHeight - (yInc * 2));
-   fill(theRnbw[4]);
-   ellipse(width/2, height/2, windowHeight - (yInc * 3));
-   fill(theRnbw[3]);
-   ellipse(width/2, height/2, windowHeight - (yInc * 4));
-   fill(theRnbw[2]);
-   ellipse(width/2, height/2, windowHeight - (yInc * 5));
-   fill(theRnbw[1]);
-   ellipse(width/2, height/2, windowHeight - (yInc * 6));
 }
 
 

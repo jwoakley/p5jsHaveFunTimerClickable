@@ -1,4 +1,11 @@
 
+// this is a silly example of using timers and clickables
+// by joshua wilder oakley
+
+//clickable library by: https://github.com/Lartu/p5.clickable
+//timer classes by: https://github.com/scottkildall/Interaction_Design_Art385_SP21/tree/main/Timer%20Examples
+
+
 //timer variables
 var simpleTimer;
 var simpleTimerTwo;

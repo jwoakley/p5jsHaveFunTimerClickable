@@ -180,7 +180,7 @@ else {
 
 //dogs dancing across screen
 function drawBlueBerry() {
-  mv = random(-6, 6);
+  mv = random(-16, 6);
 
   image(clickImg, posX + mv, ((windowHeight/2) - (windowHeight/2) - mv));
   image(clickImg, posX - mv, ((windowHeight/2) - (windowHeight/4) + mv));
@@ -191,7 +191,7 @@ function drawBlueBerry() {
   posX += 4;
 
   if( posX > width + 100) {
-   posX = 0;
+   posX =0;
  }
 }  
 

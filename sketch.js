@@ -143,16 +143,19 @@ function draw() {
 function updateTimer() {
   if( simpleTimer.expired() ) {
     // textAlign(CENTER);
+
+    mvRL = random(-2, 2);
+
     stroke(5);
     fill(255);
     textSize(300);
-    text('gotcha', width/2, yStrt);
-    text('gotcha', width/2, yStrt + yInc);
-    text('gotcha', width/2, yStrt + (yInc * 2)); 
-    text('gotcha', width/2, yStrt + (yInc * 3));
-    text('gotcha', width/2, yStrt + (yInc * 4)); 
-    text('gotcha', width/2, yStrt + (yInc * 5));
-    text('gotcha', width/2, yStrt + (yInc * 6));
+    text('gotcha', width/2 - mvRL, yStrt);
+    text('gotcha', width/2 + mvRL, yStrt + yInc);
+    text('gotcha', width/2 - mvRL, yStrt + (yInc * 2)); 
+    text('gotcha', width/2 + mvRL, yStrt + (yInc * 3));
+    text('gotcha', width/2 - mvRL, yStrt + (yInc * 4)); 
+    text('gotcha', width/2 + mvRL, yStrt + (yInc * 5));
+    text('gotcha', width/2 - mvRL, yStrt + (yInc * 6));
 }
 else {
 	fill(255);
@@ -177,7 +180,7 @@ else {
 
 //dogs dancing across screen
 function drawBlueBerry() {
-  mv = random(-2, 2);
+  mv = random(-6, 6);
 
   image(clickImg, posX + mv, ((windowHeight/2) - (windowHeight/2) - mv));
   image(clickImg, posX - mv, ((windowHeight/2) - (windowHeight/4) + mv));

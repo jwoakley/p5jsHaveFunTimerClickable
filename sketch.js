@@ -164,7 +164,7 @@ else {
 // Looks for elapsed timefor timer two
 function updateTimerTwo() {
   if( simpleTimerTwo.expired() ) {
-    rainbowCircles();
+    rainbowCirclesOnTheMove();
     drawBlueBerry();
 }
 else {
@@ -185,8 +185,13 @@ function drawBlueBerry() {
   image(clickImg, posX - mv, ((windowHeight/2) + (windowHeight/2) + mv));
   image(clickImg, posX + mv, ((windowHeight/2) + (windowHeight/4) - mv));
 
-  posX += 4  
-}
+  posX += 4;
+
+  if( posX > width + 100) {
+   posX = 0;
+ }
+}  
+
   
 function mousePressed() {
 	waitForClick = false;
@@ -195,8 +200,6 @@ function mousePressed() {
 }
 
 function rainbowCircles() {
-
-  var posY = 0;
 
   fill(theRnbw[0]);
   ellipse(width/2, height/2, windowHeight);
@@ -210,8 +213,49 @@ function rainbowCircles() {
   ellipse(width/2, height/2, windowHeight - (yInc * 4));
   fill(theRnbw[5]);
   ellipse(width/2, height/2, windowHeight - (yInc * 5));
+  
+
+}
+
+function rainbowCirclesOnTheMove(){
+
+  var p = .05;
+  
+  fill(theRnbw[0]);
+  ellipse(width/2, height/2, windowHeight);
+  push();
+  translate(windowWidth/2, windowHeight/2);
+  rotate(frameCount * p);
+  fill(theRnbw[7]);
+  ellipse(0, 0, windowHeight, 10);
+  pop();
 
 
+  fill(theRnbw[1]);
+  ellipse(width/2, height/2, windowHeight - yInc);
+  push();
+  translate(windowWidth/2, windowHeight/2);
+  rotate(frameCount * p * -.01);
+  fill(theRnbw[0]);
+  ellipse(0, 0, windowHeight - yInc, 10);
+  pop();
+
+  fill(theRnbw[2]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 2));
+  push();
+  translate(windowWidth/2, windowHeight/2);
+  rotate(frameCount * p * -2);
+  fill(theRnbw[7]);
+  ellipse(0, 0, windowHeight - (yInc * 2), 10);
+  pop();
+
+
+  fill(theRnbw[3]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 3));
+  fill(theRnbw[4]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 4));
+  fill(theRnbw[5]);
+  ellipse(width/2, height/2, windowHeight - (yInc * 5));
 }
 
 

@@ -8,6 +8,9 @@ var waitForClick = true;
 var clickImg;
 var posX = 0;
 
+//button variables
+var bttnX = 500;
+var bttnY = 125;
 
 // sound variable
 var soundEffects = [];
@@ -17,13 +20,14 @@ var bSoundTriggered = false;
 var txt = 60;
 
 // color array
-var theRnbw = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'];
+var theRnbw = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3', '#F144FD'];
 
 //random color variable
 var randCol;
 
 //clickable variables
 var introButton;
+var secondButton;
 
 //preload sound and images
 function preload(){
@@ -49,26 +53,26 @@ function setup() {
   rc = floor(rc);
 
 //allocating timer itself and time in milliseconds
-  simpleTimer = new Timer(5000);
+  simpleTimer = new Timer(10000);
   simpleTimer.start();
 
 //timer two
-  simpleTimerTwo = new Timer(10000);
+  simpleTimerTwo = new Timer(5000);
   simpleTimerTwo.start();
 
 //intro buttom, clickable #1
   introButton = new Clickable();
-  introButton.width = 500;
-  introButton.height = 125;
+  introButton.width = bttnX;
+  introButton.height = bttnY;
   introButton.locate((windowWidth/2) - (introButton.width/2),
-   (windowHeight/2) - (introButton.height/2 + 100));
+   (windowHeight/2) - (introButton.height/2 + 75));
 
 //second button
   secondButton = new Clickable();
-  secondButton.width = 500;
-  secondButton.height = 125;
+  secondButton.width = bttnX;
+  secondButton.height = bttnY;
   secondButton.locate((windowWidth/2) - (introButton.width/2),
-    (windowHeight/2) - (introButton.height/2 - 100));
+    (windowHeight/2) - (introButton.height/2 - 75));
 
 //button functions  
 introButton.onHover = function(){
@@ -88,7 +92,7 @@ introButton.onPress = function() {
   this.textSize = txt;
   this.text = "boo";
   soundEffects[0].play()
- }
+}
 
 secondButton.onHover = function(){
   this.color = (theRnbw[1]);
@@ -101,19 +105,18 @@ secondButton.onOutside = function(){
   this.text = "press if you dare";
   this.textColor = (theRnbw[2]);
 }
+
 secondButton.onPress = function() {
   this.stroke = (theRnbw[4]);
   this.textSize = txt;
   this.text = "boo";
   soundEffects[1].play()
  }
-
 }
 
 // Draw code goes here
 function draw() {
   background(theRnbw[rc]);
-
   updateTimer();
   updateTimerTwo();
   introButton.draw(); 
@@ -124,17 +127,20 @@ function draw() {
 function updateTimer() {
   if( simpleTimer.expired() ) {
     textAlign(CENTER);
-    fill(theRnbw[3]);
+    stroke(5);
+    fill(255);
     textSize(300);
-    text('gotcha', width/2, height/2 - 300);
-    text('gotcha', width/2, height/2);
-    text('gotcha', width/2, height/2 + 300); 
+    text('gotcha', width/2, 20);
+    text('gotcha', width/2, 270);
+    text('gotcha', width/2, 520); 
+    text('gotcha', width/2, 770);
+    text('gotcha', width/2, 1020); 
 }
 else {
-	fill(theRnbw[1]);
+	fill(255);
 	textAlign(CENTER);
     textSize(300);
-    text( Math.round(simpleTimer.getRemainingTime()), width/2, 200);
+    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, 200);
  }
 }
 
@@ -144,26 +150,26 @@ function updateTimerTwo() {
     drawBlueBerry();
 }
 else {
-	fill(theRnbw[4]);
+	fill(255);
 	textAlign(CENTER);
     textSize(300);
-    text( Math.round(simpleTimer.getRemainingTime()/1000), width/2, 700);
+    text( Math.round(simpleTimerTwo.getRemainingTime()/1000), width/2, 700);
  }
 }
-
+//dogs dancing across screen
 function drawBlueBerry() {
 
-	mv = random(-1, 1);
-    image(clickImg, posX + mv, 200 - mv);
-    image(clickImg, posX - mv, 600 + mv);
+	mv = random(-2, 2);
+    image(clickImg, posX + mv, 100 - mv);
+    image(clickImg, posX - mv, 350 + mv);
+    image(clickImg, posX + mv, 600 - mv);
     posX += 4  
 }
   
 function mousePressed() {
 	waitForClick = false;
 	simpleTimerTwo.start();
-	simpleTimer.start();
-	
+	simpleTimer.start();	
 }
 
 
